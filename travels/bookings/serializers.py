@@ -9,10 +9,10 @@ class UserRegisterSearializer(serializers.ModelSerializer):
         models = User
         fields = ['username', 'email', 'password']
 
-    def create(self,validate_date):
+    def create(self, validate_date):
         user = User.objects.create_user(
-            username = validate_date['username']
-            email = validate_date['email']
+            username = validate_date['username'],
+            email = validate_date['email'],
             password = validate_date['password']
         )
         return user
