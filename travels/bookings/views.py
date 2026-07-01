@@ -10,7 +10,7 @@ from rest_framework import status, generics
 from rest_framework.views import APIView
 from .serializers import UserRegisterSearializer, BusSerializers, BookingSerializer
 from rest_framework.response import Response
-from .models import Bus, Seat, Bookings
+from .models import Bus, Seat, Booking
 
 class RegisterView(APIView):
     def post(self,request):
@@ -58,7 +58,7 @@ class BookingView(APIView):
             seat.is_booked = True
             seat.save()
 
-            bookings = Bookings.objects.create(
+            bookings = Booking.objects.create(
                 user = request.user,
                 bus = seat.bus,
                 seat = seat
@@ -73,7 +73,7 @@ class UserBookingView(APIView):
     def get(self, request, user_id):
         if request.user.id != user_id:
             return Response({'error':'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
-        bookings = Bookings.objects.filter(user_id=user_id)
+        bookings = Booking.objects.filter(user_id=user_id)
         serializer = BookingSerializer(bookings, many = True)
         return Response(serializer.data)
     

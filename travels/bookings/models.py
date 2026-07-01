@@ -24,7 +24,7 @@ class Seat(models.Model):
     def __str__(self):
         return f"{self.bus} {self.seat_number}"
     
-class Bookings(models.Model):
+class Booking(models.Model):
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE,null=True,blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     seat = models.ForeignKey(Seat, on_delete=models.CASCADE)
