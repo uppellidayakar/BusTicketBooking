@@ -39,7 +39,7 @@ The Bus Ticket Booking System is a web-based application that allows users to se
 ### Backend
 
 * Python
-* Django
+* Djangorestframework
 
 ### Database
 
@@ -71,19 +71,19 @@ BusTicketBooking/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/bus-ticket-booking.git
+git clone https://github.com/uppellidayakar/BusTicketBooking.git
 ```
 
 ### 2. Navigate to Project Directory
 
 ```bash
-cd bus-ticket-booking
+cd BusTicketBooking
 ```
 
 ### 3. Create Virtual Environment
 
 ```bash
-python -m venv venv
+python -m venv env
 ```
 
 ### 4. Activate Virtual Environment
@@ -91,13 +91,13 @@ python -m venv venv
 Windows:
 
 ```bash
-venv\Scripts\activate
+env\Scripts\activate
 ```
 
 Linux/Mac:
 
 ```bash
-source venv/bin/activate
+source env/bin/activate
 ```
 
 ### 5. Install Dependencies
@@ -114,9 +114,9 @@ Update database settings in `settings.py`:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bus_booking_db',
+        'NAME': 'BusTicketBooking',
         'USER': 'root',
-        'PASSWORD': 'your_password',
+        'PASSWORD': 'd@123',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -144,9 +144,8 @@ http://127.0.0.1:8000/
 
 ## Database Tables
 
-* User
 * Bus
-* Route
+* Seat
 * Booking
 * Passenger
 * Payment

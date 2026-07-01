@@ -6,7 +6,7 @@ class UserRegisterSearializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
     class Meta:
-        models = User
+        model = User
         fields = ['username', 'email', 'password']
 
     def create(self, validate_date):
@@ -35,5 +35,5 @@ class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bookings
         fields = '__all__'
-        read_only_fields = ['user','booking_time','bus','seat']
+        read_only_fields = ['bus','user','booking_time','seat']
         

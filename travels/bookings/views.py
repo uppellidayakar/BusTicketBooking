@@ -18,7 +18,7 @@ class RegisterView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             token, created = Token.objects.get_or_create(user=user)
-            return Response({'token',token.key},status=status.HTTP_201_CREATED)
+            return Response({'token':token.key},status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
@@ -65,7 +65,7 @@ class BookingView(APIView):
             )
             serializer = BookingSerializer(bookings)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        except seat.DoesNotExist:
+        except Seat.DoesNotExist:
             return Response({'error':'Invalid Seat ID'}, status=status.HTTP_400_BAD_REQUEST)
 class UserBookingView(APIView):
     permission_classes = [IsAuthenticated]
